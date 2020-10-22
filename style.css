@@ -29,9 +29,9 @@
 }
 
 .article {
-  clear: left;
+  float: left;
   width: 600px;
-  margin: 5px 0 0 145px;
+  margin: 5px 0 0 10px;
   border-bottom: 1px solid #dcdcdc;
   line-height: 1em;
 }
