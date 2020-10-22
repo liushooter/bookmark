@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>在线工具@Rebase.network</title>
+  <link rel="icon" href="images/rebase-icon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/rebase-icon.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE;chrome=1">
+  <meta name="keywords" content="Rebase blockchain 区块链 Bitcoin Ethereum 比特币 以太坊 数字货币 社区">
+  <meta name="description" content="Rebase是一个极客组织，致力于帮助极客更好地利用科技创新，推动社会变革。">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+
+  <script id="articleTpl" type="text/x-handlebars-template">
+    {{#each articles}}
+      {{#if this}}
+        <div class="article">
+          <h2 class="title">
+            <a href="{{this.url}}" target="_blank">{{this.title}}</a>
+            <span class="time">{{this.time}}</span>
+          </h2>
+          <p>
+            <span class="author">{{this.author}}</span>
+            {{this.url}}
+          </p>
+        </div>
+      {{/if}}
+    {{/each}}
+  </script>
+
+</head>
+
+<body>
+  <div class="header">
+    <span>在线工具</span>
+    <small>Rebase.network</small>
+  </div>
+  <!--
+  <div class="tables">
+    <a href="#" class="first">热门话题</a>
+    <a href="#">科技动态</a>
+    <a href="#">开发者资讯</a>
+    <a href="#">区块链快讯</a>
+    <a href="#">招聘行情</a>
+  </div>
+
+  <div class="lab"><a href="#"><img src="images/lab.png" width="50"></a></div>
+  -->
+  <div class="wire"></div>
+
+  <div id="posts">
+    <!--
+    <div class="article">
+        <h2 class="title">
+          <a href="#" target="_blank">英国拟对谷歌、Facebook 广告收入征收数字税</a>
+          <span class="time">2019/12/15</span>
+        </h2>
+        <p>
+          <span class="author">Shooter</span>
+          据外媒报道，英国财政部正计划对广告收入征收新的数字税。财政部正在研究，企业从英国用户身上获得了多少价值，并尝试让企业就这些价值纳税 ... 英国财政部长菲利普 · 哈蒙德（Philip Hammond）上周在保守党大会上发表演讲时提出所谓的「数字服务税」，这可能会瞄准美国科技巨头在英国的广告收入。但对可能影响英国科技创业公司的方案持谨慎态度 ... 来自英国政府的消息人士表示，新税将更多地影响谷歌和 Facebook，对亚马逊的影响较小。
+        </p>
+    </div>
+    -->
+
+  </div>
+  <div class="sponsor">
+    <h3>公众号</h3>
+    <a href="#"><img src="images/wx.jpg" style="width: 250px;height: 250px;"></a>
+  </div>
+</body>
+
+<script>
+  $.get("https://sheet.best/api/sheets/52526e16-a636-467f-9c63-ecdc848dba6d", function(data) {
+
+    var source = $("#articleTpl").html();
+    var template = Handlebars.compile(source);
+
+    var context = {
+      "articles": data
+    };
+
+    var html = template(context);
+    $('#posts').html(html);
+  })
+</script>
+
+</html>
