@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>在线工具@Rebase.network</title>
+  <title>书签@Rebase.network</title>
   <link rel="icon" href="images/rebase-icon.png" type="image/x-icon" />
   <link rel="shortcut icon" href="images/rebase-icon.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
@@ -24,7 +24,7 @@
           </h2>
           <p>
             <span class="author">{{this.author}}</span>
-            {{this.url}}
+            <a href="{{this.url}}" target="_blank">{{this.url}}</a>
           </p>
         </div>
       {{/if}}
@@ -35,7 +35,7 @@
 
 <body>
   <div class="header">
-    <span>在线工具</span>
+    <span>书签</span>
     <small><a href="https://rebase.network/" target="_blank">Rebase.network</a></small>
   </div>
   <!--
